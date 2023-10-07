@@ -1,25 +1,27 @@
-import { useState } from "react";
-import "./App.css";
+import React from "react";
+import { useEffect } from "react";
 
-const Person = (props) => {
-  return (
-    <div>
-      <h1>name: {props.name}</h1>
-      <h2>age: {props.age}</h2>
-      <h3>favoriteColor: {props.favoriteColor}</h3>
-    </div>
-  );
-};
+//63d34323
+
+const API_URL = "https://www.omdbapi.com?apikey=63d34323";
 
 const App = () => {
-  const [counter, setCounter] = useState(0);
-  return (
-    <div className="App">
-      <button onClick={() => alert("my balls! ")}>-</button>
-      <h1>0</h1>
-      <button>+</button>
-    </div>
-  );
-};
+    const searchMovies = async (title) => {
+        const response = async fetch(`${API_URL}&s=${title}`);
+        const data = await response.json();
+        console.log(data);
+    }
+
+    useEffect(
+        () => {
+
+        }, []
+    );
+
+
+    return (
+        <h1>bruh</h1>
+    );
+}
 
 export default App;
